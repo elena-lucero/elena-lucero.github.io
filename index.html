@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elena Lucero · Cybersecurity</title>
+<meta name="description" content="Elena Lucero · Cybersecurity · Blue Team. Hands-on labs built and documented by me.">
+<meta name="theme-color" content="#0D1117">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, precise, night-shift SOC console; confident, never loud
+   IDEA: an analyst's monitoring console: a live terminal and a quiet network map
+   PICTURE: a terminal window that types whoami/path/labs over a field of signal dots
+   COLOUR and TYPE: #0D1117 ground, #3EC6D6 cyan signal, #126E7A deep teal; Sora + Fira Code for terminal
+   LAYOUT: nav, hero console, labs as two case files, path, languages, contact, footer */
+:root{color-scheme:dark;--bg:#0D1117;--bg2:#111823;--line:#1F2A37;--ink:#E6EDF3;--mute:#8B949E;--cy:#3EC6D6;--teal:#126E7A}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Sora,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:rgba(13,17,23,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{font:500 15px "Fira Code",monospace;text-decoration:none}
+.brand b{color:var(--cy);font-weight:500}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--mute);font-size:14px;padding:10px 12px;border-radius:8px}
+.links a:hover,.links a:focus-visible{color:var(--ink);background:var(--bg2);outline:none}
+.hero{position:relative;padding:clamp(40px,7vw,96px) 0 clamp(40px,6vw,80px);overflow:hidden}
+#dots{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
+h1{font-weight:300;font-size:clamp(40px,6vw,64px);line-height:1.02;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+h1 strong{font-weight:600;display:block}
+.role{font-size:18px;color:var(--cy);margin:0 0 22px}
+.lead{color:var(--mute);max-width:44ch;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--cy);transition:background .2s,color .2s}
+.btn.pri{background:var(--cy);color:var(--bg)}
+.btn.sec{color:var(--cy)}
+.btn:hover,.btn:focus-visible{background:var(--teal);color:var(--ink);border-color:var(--teal);outline:none}
+.term{background:#0A0E14;border:1px solid var(--line);border-radius:14px;box-shadow:0 30px 80px -30px rgba(62,198,214,.35),0 0 0 1px rgba(62,198,214,.06);overflow:hidden}
+.bar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.bar i{width:11px;height:11px;border-radius:50%;background:#2D3743}
+.bar i:first-child{background:var(--cy)}
+.bar span{margin-left:8px;font:13px "Fira Code",monospace;color:var(--mute)}
+#out{margin:0;padding:20px 20px 24px;min-height:320px;font:14.5px/1.75 "Fira Code",monospace;white-space:pre-wrap;color:var(--ink)}
+#out .p{color:var(--cy)}#out .d{color:var(--mute)}
+.cur{display:inline-block;width:8px;height:1.1em;vertical-align:-3px;background:var(--cy);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+section{padding:clamp(48px,7vw,96px) 0;border-top:1px solid var(--line)}
+h2{font-weight:600;font-size:clamp(28px,3.6vw,38px);line-height:1.1;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--mute);margin:0 0 36px;max-width:60ch}
+.cmd{font:14px "Fira Code",monospace;color:var(--cy);margin:0 0 10px}
+.labs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.lab{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px;transition:border-color .25s,transform .25s}
+.lab:hover{border-color:var(--teal);transform:translateY(-3px)}
+.lab svg{width:100%;height:auto;margin:0 0 20px;border-radius:10px;background:#0A0E14}
+.lab h3{font-size:22px;line-height:1.2;margin:0 0 8px}
+.lab p{color:var(--mute);margin:0 0 16px}
+.lab ul{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:8px}
+.lab li{padding-left:22px;position:relative;font-size:15px}
+.lab li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--cy)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:auto 0 22px}
+.chips span{font:13px "Fira Code",monospace;color:var(--cy);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.lab a.btn{align-self:flex-start}
+.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative}
+.step{padding:24px 24px 24px 0;position:relative}
+.step .n{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.step .n b{width:14px;height:14px;border-radius:50%;background:var(--cy);box-shadow:0 0 0 6px rgba(62,198,214,.15);flex:none}
+.step .n i{flex:1;height:1px;background:linear-gradient(90deg,var(--cy),var(--line))}
+.step:last-child .n i{background:transparent}
+.step h3{margin:0 0 6px;font-size:20px}
+.step p{margin:0;color:var(--mute);font-size:15px;max-width:30ch}
+.langs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.lang{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.lang b{display:block;font:500 22px "Fira Code",monospace;color:var(--cy)}
+.lang span{display:block;font-size:15px}
+.lang small{color:var(--mute);font-size:13px}
+.contact{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.contact a{display:flex;flex-direction:column;gap:4px;padding:20px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--bg2);transition:border-color .2s}
+.contact a:hover,.contact a:focus-visible{border-color:var(--cy);outline:none}
+.contact b{font-size:17px}
+.contact small{font:13px "Fira Code",monospace;color:var(--mute);overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font:13px "Fira Code",monospace}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){.hero .wrap,.labs{grid-template-columns:minmax(0,1fr)}.langs{grid-template-columns:repeat(3,minmax(0,1fr))}.contact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.path{grid-template-columns:minmax(0,1fr)}.step{padding:0 0 22px}.step .n i{display:none}.langs{grid-template-columns:repeat(2,minmax(0,1fr))}#out{font-size:13px;min-height:290px}.links a{padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#top"><b>~/</b>elena-lucero</a>
+  <div class="links"><a href="#labs">Labs</a><a href="#path">Path</a><a href="#languages">Languages</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero" id="top">
+  <svg id="dots" aria-hidden="true"></svg>
+  <div class="wrap">
+    <div>
+      <h1>Elena<strong>Lucero</strong></h1>
+      <p class="role">Cybersecurity · Blue Team</p>
+      <p class="lead">Aspiring SOC Analyst based in the Basel area. I learn by doing: I build my own labs, break them, protect them and document every step.</p>
+      <div class="btns">
+        <a class="btn pri" href="#labs">See my labs</a>
+        <a class="btn sec" href="https://www.linkedin.com/in/elenalucero">LinkedIn</a>
+      </div>
+    </div>
+    <div class="term" role="img" aria-label="Terminal: whoami Elena Lucero, path Blue Team to SOC to Cloud Security, two labs">
+      <div class="bar"><i></i><i></i><i></i><span>elena@lab: ~</span></div>
+      <pre id="out"></pre>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="labs"><div class="wrap">
+  <p class="cmd">$ ls ./labs</p>
+  <h2>Hands-on labs</h2>
+  <p class="sub">Built and documented by me, in my own isolated environments.</p>
+  <div class="labs">
+
+    <article class="lab reveal">
+      <svg viewBox="0 0 400 150" role="img" aria-label="Kali LAB connected to Metasploitable2 on an isolated host-only network">
+        <rect x="14" y="14" width="372" height="122" rx="10" fill="none" stroke="#3EC6D6" stroke-dasharray="5 5" opacity=".6"/>
+        <text x="28" y="36" fill="#3EC6D6" font-family="Fira Code" font-size="11">host-only · isolated</text>
+        <rect x="40" y="58" width="120" height="54" rx="8" fill="#111823" stroke="#3EC6D6"/>
+        <text x="100" y="90" fill="#E6EDF3" font-family="Sora" font-size="14" text-anchor="middle">Kali LAB</text>
+        <rect x="240" y="58" width="130" height="54" rx="8" fill="#111823" stroke="#3EC6D6"/>
+        <text x="305" y="82" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Metasploitable2</text>
+        <text x="305" y="100" fill="#8B949E" font-family="Fira Code" font-size="11" text-anchor="middle">192.168.128.3</text>
+        <line x1="160" y1="85" x2="240" y2="85" stroke="#3EC6D6" stroke-width="2"/>
+        <circle r="4" fill="#3EC6D6"><animate attributeName="cx" values="164;236;164" dur="3s" repeatCount="indefinite"/><animate attributeName="cy" values="85;85;85" dur="3s" repeatCount="indefinite"/></circle>
+      </svg>
+      <h3>Metasploitable2 Lab</h3>
+      <p>An isolated network on my Mac, to practise reconnaissance against an intentionally vulnerable machine.</p>
+      <ul>
+        <li>Emulated x86_64 VM in UTM, on a host-only network</li>
+        <li>Nmap scan with <code>-sV -Pn -n -T4</code>: finished in 52.70 s</li>
+        <li>Unauthenticated bindshell on port 1524: root access with no password</li>
+      </ul>
+      <div class="chips"><span>UTM</span><span>QEMU</span><span>Kali Linux</span><span>Nmap</span><span>Netcat</span></div>
+      <a class="btn sec" href="https://github.com/elena-lucero/cybersecurity-portfolio/blob/main/home-lab-metasploitable2.md">Read the lab →</a>
+    </article>
+
+    <article class="lab reveal">
+      <svg viewBox="0 0 400 150" role="img" aria-label="iPhone connects through the router to the Raspberry Pi running Pi-hole, WireGuard and UFW">
+        <rect x="14" y="14" width="372" height="122" rx="10" fill="none" stroke="#3EC6D6" stroke-dasharray="5 5" opacity=".6"/>
+        <text x="28" y="36" fill="#3EC6D6" font-family="Fira Code" font-size="11">home network</text>
+        <rect x="28" y="62" width="74" height="46" rx="8" fill="#111823" stroke="#8B949E"/>
+        <text x="65" y="90" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">iPhone</text>
+        <rect x="140" y="62" width="84" height="46" rx="8" fill="#111823" stroke="#8B949E"/>
+        <text x="182" y="90" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Router</text>
+        <rect x="262" y="52" width="112" height="66" rx="8" fill="#111823" stroke="#3EC6D6"/>
+        <text x="318" y="78" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Raspberry Pi 5</text>
+        <text x="318" y="98" fill="#8B949E" font-family="Fira Code" font-size="10" text-anchor="middle">Pi-hole · WireGuard</text>
+        <line x1="102" y1="85" x2="140" y2="85" stroke="#3EC6D6" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="224" y1="85" x2="262" y2="85" stroke="#3EC6D6" stroke-width="2"/>
+        <circle r="4" fill="#3EC6D6" cy="85"><animate attributeName="cx" values="106;258" dur="2.6s" repeatCount="indefinite"/></circle>
+      </svg>
+      <h3>Raspberry Pi Home Security Server</h3>
+      <p>My own home server: ad blocking, a personal VPN, a firewall and alerts for unknown devices.</p>
+      <ul>
+        <li>Pi-hole blocked 38 of 250 requests (15%) on a news website test</li>
+        <li>WireGuard VPN: Pi-hole keeps blocking trackers outside my home</li>
+        <li>UFW firewall, SSH keys, automatic updates and backups</li>
+        <li>arp-scan + Cron + ntfy alerts for new devices</li>
+      </ul>
+      <div class="chips"><span>Raspberry Pi</span><span>Pi-hole</span><span>WireGuard</span><span>UFW</span><span>arp-scan</span><span>ntfy</span></div>
+      <a class="btn sec" href="https://github.com/elena-lucero/cybersecurity-portfolio/blob/main/raspberry-pi-pihole-vpn.md">Read the lab →</a>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="path"><div class="wrap">
+  <p class="cmd">$ cat path.txt</p>
+  <h2>My path</h2>
+  <p class="sub">Where I am going, one step at a time.</p>
+  <div class="path">
+    <div class="step reveal"><div class="n"><b></b><i></i></div><h3>Blue Team</h3><p>Defend systems: protect, monitor and respond.</p></div>
+    <div class="step reveal"><div class="n"><b></b><i></i></div><h3>SOC</h3><p>Watch alerts and logs, and find real threats.</p></div>
+    <div class="step reveal"><div class="n"><b></b><i></i></div><h3>Cloud Security</h3><p>Protect systems and data in the cloud.</p></div>
+  </div>
+</div></section>
+
+<section id="languages"><div class="wrap">
+  <p class="cmd">$ locale</p>
+  <h2>Languages</h2>
+  <p class="sub">I can work with people from many places.</p>
+  <div class="langs">
+    <div class="lang reveal"><b>es</b><span>Spanish</span><small>native</small></div>
+    <div class="lang reveal"><b>it</b><span>Italian</span><small>bilingual</small></div>
+    <div class="lang reveal"><b>ca</b><span>Catalan</span><small>advanced</small></div>
+    <div class="lang reveal"><b>en</b><span>English</span><small>intermediate</small></div>
+    <div class="lang reveal"><b>de</b><span>German</span><small>learning</small></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <p class="cmd">$ ./contact.sh</p>
+  <h2>Find me</h2>
+  <p class="sub">The best way to contact me is LinkedIn.</p>
+  <div class="contact">
+    <a href="https://www.linkedin.com/in/elenalucero"><b>LinkedIn</b><small>in/elenalucero</small></a>
+    <a href="https://github.com/elena-lucero"><b>GitHub</b><small>elena-lucero</small></a>
+    <a href="https://tryhackme.com/p/khalehna"><b>TryHackMe</b><small>khalehna</small></a>
+    <a href="https://profile.hackthebox.com/profile/01a16a77-2ac1-721e-bb9f-c6ea88efcc8f"><b>Hack The Box</b><small>profile</small></a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Elena Lucero</span><span>$ exit</span></div></footer>
+
+<script>
+{
+  const NS='http://www.w3.org/2000/svg', svg=document.getElementById('dots');
+  const drawDots=()=>{
+    const W=svg.clientWidth,H=svg.clientHeight; if(!W||!H) return;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    let s='';const gap=W<600?22:26;
+    for(let x=0;x<W;x+=gap){for(let y=0;y<H;y+=gap){
+      const w=Math.sin(x/140)*60+H*.62, d=Math.abs(y-w);
+      if(d<120){const o=(1-d/120)*.9;s+=`<circle cx="${x}" cy="${y}" r="${1+o*1.4}" fill="#3EC6D6" opacity="${o.toFixed(2)}"/>`}
+      else s+=`<circle cx="${x}" cy="${y}" r=".8" fill="#2D3743"/>`;
+    }}
+    svg.innerHTML=s;
+  };
+  drawDots(); new ResizeObserver(drawDots).observe(svg);
+
+  const lines=[
+    ['p','$ whoami'],['','Elena Lucero'],['',''],
+    ['p','$ cat path.txt'],['','Blue Team → SOC → Cloud Security'],['',''],
+    ['p','$ ls ./labs'],['d','metasploitable2-lab/   raspberry-pi-home-server/'],['',''],
+    ['p','$ cat motto.txt'],['','Learning by doing, one lab at a time.'],['','']
+  ];
+  const out=document.getElementById('out');
+  const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const render=(done,partial)=>out.innerHTML=done.map(([c,t])=>`<span class="${c}">${esc(t)}</span>`).join('\n')+(partial!==undefined?(done.length?'\n':'')+partial:'')+'<span class="cur"></span>';
+  if(reduce){render(lines)}else{
+    let i=0,j=0,done=[];
+    const tick=()=>{
+      if(i>=lines.length){render(done);return}
+      const [c,t]=lines[i];
+      if(c!=='p'){done.push(lines[i]);i++;render(done);setTimeout(tick,t?260:120);return}
+      if(j<=t.length){render(done,`<span class="p">${esc(t.slice(0,j))}</span>`);j++;setTimeout(tick,55);return}
+      done.push(lines[i]);i++;j=0;render(done);setTimeout(tick,380);
+    };
+    setTimeout(tick,500);
+  }
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+</script>
+</body>
+</html>

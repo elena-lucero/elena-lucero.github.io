@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0C0F16">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500&family=Instrument+Serif:ital@1&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500&family=Exo+2:wght@200;300;400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* Soft futurist: bento layout, rounded glass tiles, iridescent accent (cyan → lilac → pearl), serif italic touch */
 :root{color-scheme:dark;--bg:#0C0F16;--tile:rgba(255,255,255,.035);--tile2:rgba(255,255,255,.055);--line:rgba(255,255,255,.075);--ink:#EEF1F6;--mute:#98A2B3;--dim:#5B6474;--cy:#3EC6D6;--li:#C4B5FD;--pe:#F3D9CF;
@@ -51,8 +51,8 @@ nav .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;
 .avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;background:#151A24;border:3px solid var(--bg);font-size:0;color:transparent}
 .tag{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font:400 12.5px "Fira Code",monospace;color:var(--ink);padding:6px 13px;border-radius:999px;background:var(--tile2);border:1px solid var(--line)}
 .tag i{width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 10px var(--cy)}
-h1{font-weight:200;font-size:clamp(48px,6.6vw,84px);line-height:.98;margin:0 0 20px;letter-spacing:-.04em}
-.surname{color:var(--cy);font-weight:300}
+h1{font-family:"Exo 2",Sora,sans-serif;font-weight:300;font-size:clamp(52px,7.2vw,92px);line-height:.95;margin:0 0 20px;letter-spacing:-.02em}
+.surname{color:var(--cy)}
 .lead{color:var(--mute);max-width:44ch;margin:0 0 28px}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .btn{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;text-decoration:none;font-size:14.5px;font-weight:400;border:1px solid var(--line);transition:transform .2s,background .2s,border-color .2s,color .2s}
@@ -85,10 +85,12 @@ h1{font-weight:200;font-size:clamp(48px,6.6vw,84px);line-height:.98;margin:0 0 2
 .st p{margin:0;font-size:12.5px;line-height:1.5;color:var(--mute)}
 
 .langcell{grid-column:span 7;padding:22px 24px 24px}
-.langs{display:flex;flex-wrap:wrap;gap:8px}
-.lang{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:var(--tile2);border:1px solid var(--line);font-size:14px}
-.lang b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font:400 11.5px "Fira Code",monospace;color:var(--bg);background:var(--holo);text-transform:uppercase}
-.lang small{color:var(--mute);font-size:12.5px}
+.langs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.lang{border:1px solid var(--line);border-radius:16px;padding:14px 10px;background:var(--tile2);transition:border-color .2s}
+.lang:hover{border-color:rgba(62,198,214,.35)}
+.lang b{display:block;font:200 30px/1 "Exo 2",sans-serif;color:var(--cy);margin:0 0 8px;text-transform:uppercase}
+.lang span{display:block;font-size:13.5px;font-weight:400}
+.lang small{font:400 10.5px "Fira Code",monospace;letter-spacing:-.03em;color:var(--mute);white-space:nowrap}
 
 .contactcell{grid-column:span 5;padding:22px 24px 14px}
 .contactcell p{margin:0 0 10px;color:var(--mute);font-size:14px}
@@ -102,7 +104,7 @@ h1{font-weight:200;font-size:clamp(48px,6.6vw,84px);line-height:.98;margin:0 0 2
 /* projects */
 .section{padding:clamp(30px,4vw,48px) 0 10px}
 .shead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 18px}
-h2{font-weight:200;font-size:clamp(32px,4.2vw,48px);line-height:1.05;margin:6px 0 0;letter-spacing:-.035em}
+h2{font-family:"Exo 2",Sora,sans-serif;font-weight:300;font-size:clamp(32px,4.2vw,48px);line-height:1.05;margin:6px 0 0;letter-spacing:-.035em}
 .shead p{margin:0;color:var(--mute)}
 .projects{display:grid;gap:14px}
 .proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:0}
@@ -133,6 +135,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .proj .body{padding:12px 24px 26px}
 }
 @media(max-width:560px){
+  .langs{grid-template-columns:repeat(3,minmax(0,1fr))}
   nav .bar{padding:10px 10px 10px 16px;border-radius:22px}.links a{padding:7px 9px;font-size:13px}
   .steps{grid-template-columns:minmax(0,1fr);padding:0 0 0 22px}
   .steps::before{top:6px;bottom:6px;left:5px;right:auto;width:1px;height:auto;background:linear-gradient(var(--cy),var(--li),var(--pe))}
@@ -183,11 +186,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="tile langcell" id="languages">
       <span class="mono top"><b>$</b> locale <span style="color:var(--dim)">· I can work with people from many places.</span></span>
       <div class="langs">
-        <span class="lang"><b>es</b>Spanish <small>native</small></span>
-        <span class="lang"><b>it</b>Italian <small>advanced</small></span>
-        <span class="lang"><b>ca</b>Catalan <small>advanced</small></span>
-        <span class="lang"><b>en</b>English <small>intermediate</small></span>
-        <span class="lang"><b>de</b>German <small>learning</small></span>
+        <div class="lang"><b>es</b><span>Spanish</span><small>native</small></div>
+        <div class="lang"><b>it</b><span>Italian</span><small>advanced</small></div>
+        <div class="lang"><b>ca</b><span>Catalan</span><small>advanced</small></div>
+        <div class="lang"><b>en</b><span>English</span><small>intermediate</small></div>
+        <div class="lang"><b>de</b><span>German</span><small>learning</small></div>
       </div>
     </div>
 

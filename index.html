@@ -117,6 +117,8 @@ h1{font-family:"Exo 2",Sora,sans-serif;font-weight:300;font-size:clamp(52px,7.2v
 .shead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 18px}
 h2{font-family:"Exo 2",Sora,sans-serif;font-weight:300;font-size:clamp(32px,4.2vw,48px);line-height:1.05;margin:6px 0 0;letter-spacing:-.035em}
 .shead p{margin:0;color:var(--mute)}
+.folder{color:var(--cy);text-decoration:none;font:400 13px "Fira Code",monospace;margin-left:8px;white-space:nowrap;border-bottom:1px solid rgba(62,198,214,.35)}
+.folder:hover,.folder:focus-visible{border-color:var(--cy);outline:none}
 .projects{display:grid;gap:14px}
 .proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:0}
 .proj .fig{margin:12px;border-radius:18px;overflow:hidden;background:#080A0F;border:1px solid var(--line);align-self:center}
@@ -160,7 +162,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="wrap">
 <nav><div class="bar">
   <a class="brand" href="#top"><b>~/</b>elena-lucero</a>
-  <div class="links"><a href="#work">Work</a><a href="#path">Path</a><a href="#languages">Languages</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#projects">Projects</a><a href="#labs">Home labs</a><a href="#articles">Articles</a><a href="#contact">Contact</a></div>
 </div></nav>
 </div>
 
@@ -175,7 +177,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <h1>Elena <span class="surname">Lucero</span></h1>
       <p class="lead">Aspiring SOC Analyst based in the Basel area. I learn by doing: I build my own labs, break them, protect them and document every step.</p>
       <div class="btns">
-        <a class="btn pri" href="#work">See my work</a>
+        <a class="btn pri" href="#projects">See my work</a>
         <a class="btn sec" href="https://www.linkedin.com/in/elenalucero">LinkedIn ↗</a>
         <a class="btn sec" href="https://github.com/elena-lucero" target="_blank" rel="noopener noreferrer" aria-label="Follow Elena Lucero on GitHub (opens in a new tab)">Follow on GitHub ↗</a>
       </div>
@@ -217,10 +219,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </header>
 
 <main>
-<section class="section" id="work"><div class="wrap">
+<section class="section" id="projects"><div class="wrap">
   <div class="shead">
-    <div><span class="mono"><b>$</b> ls ./labs</span><h2>Labs &amp; <span class="surname">projects</span></h2></div>
-    <p>Built and documented by me.</p>
+    <div><span class="mono"><b>$</b> ls ./projects</span><h2><span class="surname">Projects</span></h2></div>
+    <p>Projects I design and build. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/projects/vulneria" target="_blank" rel="noopener noreferrer">Open vulneria <span aria-hidden="true">↗</span></a></p>
   </div>
   <div class="projects">
 
@@ -333,6 +335,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
     </article>
 
+  </div>
+</div></section>
+
+<section class="section" id="labs"><div class="wrap">
+  <div class="shead">
+    <div><span class="mono"><b>$</b> ls ./hands-on-labs</span><h2>Home <span class="surname">labs</span></h2></div>
+    <p>Built and documented by me, in my own isolated environments. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/hands-on-labs" target="_blank" rel="noopener noreferrer">Open folder <span aria-hidden="true">↗</span></a></p>
+  </div>
+  <div class="projects">
+
     <article class="tile proj reveal">
       <div class="fig"><svg viewBox="0 0 400 150" role="img" aria-label="Kali LAB connected to Metasploitable2 on an isolated host-only network">
         <rect x="14" y="14" width="372" height="122" rx="10" fill="none" stroke="#3EC6D6" stroke-dasharray="5 5" opacity=".6"/>
@@ -394,7 +406,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section class="section" id="articles"><div class="wrap">
   <div class="shead">
-    <div><span class="mono"><b>$</b> ls ./articles</span><h2>Articles</h2></div>
+    <div><span class="mono"><b>$</b> ls ./articles</span><h2>Articles &amp; <span class="surname">creative work</span></h2></div>
+    <p>Writing and visual explanations about how threats work. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/articles" target="_blank" rel="noopener noreferrer">Open folder <span aria-hidden="true">↗</span></a></p>
   </div>
   <div class="projects">
     <article class="tile proj reveal">
@@ -455,7 +468,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   const lines=[
     ['p','$ whoami'],['','Elena Lucero'],['',''],
     ['p','$ cat path.txt'],['','Blue Team → SOC → Cloud Security'],['',''],
-    ['p','$ ls ./labs'],['d','metasploitable2-lab/   raspberry-pi-home-server/   vulneria/'],['',''],
+    ['p','$ ls'],['d','projects/   hands-on-labs/   articles/'],['',''],
     ['p','$ cat motto.txt'],['','Learning by doing, one lab at a time.']
   ];
   const out=document.getElementById('out');

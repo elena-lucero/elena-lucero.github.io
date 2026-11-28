@@ -226,6 +226,13 @@ a{color:inherit;text-decoration:none}
 .skills li{font-size:17px;font-weight:400}
 .skills li+li::before{content:"·";margin:0 12px;color:var(--steel)}
 @media(max-width:900px){.skills{grid-column:1/-1}}
+.follow{display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.follow a{padding:10px 20px;border:1px solid rgba(27,28,30,.25);border-radius:999px;color:var(--ink);transition:background .5s var(--ease),color .5s var(--ease),border-color .5s}
+.follow a:first-child{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.follow a:hover,.follow a:focus-visible{background:var(--sea);border-color:var(--sea);color:#fff;outline:none}
+.cover .halo.h2{width:165%;height:165%;left:-32.5%;top:-32.5%}
+.follow{margin-bottom:clamp(18px,3vw,40px)}
+@media(max-width:560px){.follow a{padding:9px 14px;font-size:9.5px}.follow{gap:8px}}
 /* magnet */
 .mag{opacity:0;transform:translateY(40px);transition:opacity 1.3s var(--ease),transform 1.5s var(--ease);transition-delay:var(--d,0s)}
 .mag.in{opacity:1;transform:none}
@@ -252,6 +259,7 @@ a{color:inherit;text-decoration:none}
   <div class="folio cap mag"><span><b>Elena Lucero</b></span><span>Basel area</span></div>
   <h1 class="mast disp" aria-label="Elena Lucero"><span class="rise"><span>Elena <b>Lucero</b></span></span></h1>
   <div class="issue cap mag" style="--d:.2s"><span>Cybersecurity</span><span>Blue Team</span><span>Aspiring SOC Analyst</span></div>
+  <div class="follow mag" style="--d:.3s"><a class="cap" href="https://github.com/elena-lucero" target="_blank" rel="noopener noreferrer">Follow on GitHub ↗</a><a class="cap" href="https://www.linkedin.com/in/elenalucero" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
   <div class="stage">
     <div class="line mag" style="--d:.35s"><span class="cap" style="color:var(--sea)">Method</span><h3>Learning by doing</h3><p>Labs built, broken, protected and documented.</p></div>
     <div class="pearl mag" style="--d:.25s"><i class="halo"></i><i class="halo h2"></i></div>
@@ -317,7 +325,7 @@ a{color:inherit;text-decoration:none}
   <div class="pearl mag"></div>
   <h2 class="disp"><span class="rise"><span>Find <b>me</b></span></span></h2>
   <p class="mag" style="--d:.15s">The best way to contact me is LinkedIn.</p>
-  <div class="links cap mag" style="--d:.25s"><a href="https://www.linkedin.com/in/elenalucero" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/elena-lucero" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+  <div class="links cap mag" style="--d:.25s"><a href="https://www.linkedin.com/in/elenalucero" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/elena-lucero" target="_blank" rel="noopener noreferrer">Follow on GitHub ↗</a></div>
   <div class="pn cap"><span>© 2026 Elena Lucero</span><span>Basel area</span></div>
 </section>
 

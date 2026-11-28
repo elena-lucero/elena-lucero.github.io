@@ -136,6 +136,19 @@ h2{font-family:"Exo 2",Sora,sans-serif;font-weight:300;font-size:clamp(32px,4.2v
 .more{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:400;text-decoration:none;color:var(--cy);padding:9px 16px;border-radius:999px;border:1px solid rgba(62,198,214,.3);transition:gap .2s,border-color .2s,background .2s}
 .more:hover,.more:focus-visible{gap:12px;border-color:var(--cy);background:rgba(62,198,214,.06);outline:none}
 
+
+/* work doors */
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.door{display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:border-color .3s,background .3s,transform .3s}
+.door:hover,.door:focus-visible{border-color:rgba(62,198,214,.45);background:var(--tile2);transform:translateY(-4px);outline:none}
+.door .art{margin:12px 12px 0;border-radius:18px;background:#080A0F;border:1px solid var(--line);overflow:hidden}
+.door .art svg{display:block;width:100%;height:auto}
+.door .dbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.door h3{font:300 30px/1.1 "Exo 2",Sora,sans-serif;letter-spacing:-.02em;margin:8px 0 8px}
+.door p{margin:0 0 18px;color:var(--mute);font-size:14.5px}
+.door .open{margin-top:auto;align-self:flex-start;display:inline-flex;gap:8px;font-size:14px;color:var(--cy);padding:8px 15px;border-radius:999px;border:1px solid rgba(62,198,214,.3);transition:gap .2s,border-color .2s}
+.door:hover .open,.door:focus-visible .open{gap:12px;border-color:var(--cy)}
+@media(max-width:900px){.doors{grid-template-columns:minmax(0,1fr)}}
 footer{margin-top:40px;border-top:1px solid var(--line);padding:22px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
@@ -162,7 +175,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="wrap">
 <nav><div class="bar">
   <a class="brand" href="#top"><b>~/</b>elena-lucero</a>
-  <div class="links"><a href="#projects">Projects</a><a href="#labs">Home labs</a><a href="#articles">Articles</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#work">Work</a><a href="#path">Path</a><a href="#languages">Languages</a><a href="#contact">Contact</a></div>
 </div></nav>
 </div>
 
@@ -177,7 +190,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <h1>Elena <span class="surname">Lucero</span></h1>
       <p class="lead">Aspiring SOC Analyst based in the Basel area. I learn by doing: I build my own labs, break them, protect them and document every step.</p>
       <div class="btns">
-        <a class="btn pri" href="#projects">See my work</a>
+        <a class="btn pri" href="#work">See my work</a>
         <a class="btn sec" href="https://www.linkedin.com/in/elenalucero">LinkedIn ↗</a>
         <a class="btn sec" href="https://github.com/elena-lucero" target="_blank" rel="noopener noreferrer" aria-label="Follow Elena Lucero on GitHub (opens in a new tab)">Follow on GitHub ↗</a>
       </div>
@@ -219,244 +232,74 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </header>
 
 <main>
-<section class="section" id="projects"><div class="wrap">
+<section class="section" id="work"><div class="wrap">
   <div class="shead">
-    <div><span class="mono"><b>$</b> ls ./projects</span><h2><span class="surname">Projects</span></h2></div>
-    <p>Projects I design and build. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/projects/vulneria" target="_blank" rel="noopener noreferrer">Open vulneria <span aria-hidden="true">↗</span></a></p>
+    <div><span class="mono"><b>$</b> ls ~/portfolio</span><h2>My <span class="surname">work</span></h2></div>
+    <p>Everything is documented on GitHub.</p>
   </div>
-  <div class="projects">
-
-    <article class="tile proj reveal">
-      <div class="fig"><svg viewBox="0 0 400 260" role="img" aria-label="DDoS simulation: a C2 server sends a command to four bots, the bots flood the web server with packets, the server load reaches its limit, it answers HTTP 503 and a legitimate user request times out">
-        <rect x="14" y="14" width="372" height="30" rx="8" fill="#111823" stroke="#3EC6D6"/>
-        <text x="28" y="34" fill="#3EC6D6" font-family="Fira Code" font-size="12">$ search ddos<tspan class="cursor">_</tspan></text>
-        <rect x="14" y="56" width="372" height="192" rx="10" fill="#111823" stroke="#1F2A37"/>
-        <text x="30" y="82" fill="#E6EDF3" font-family="Sora" font-size="16" font-weight="600">DDoS</text>
-        <text x="80" y="82" fill="#3EC6D6" font-family="Fira Code" font-size="10">Attacks</text>
-        <text x="370" y="82" text-anchor="end" fill="#3EC6D6" font-family="Fira Code" font-size="10" opacity="0">1 · C2 sends the command<animate attributeName="opacity" values="1;1;0;0" keyTimes="0.0000;0.1875;0.1888;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
-        <text x="370" y="82" text-anchor="end" fill="#3EC6D6" font-family="Fira Code" font-size="10" opacity="0">2 · botnet floods the server<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.1875;0.1888;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
-        <text x="370" y="82" text-anchor="end" fill="#F85149" font-family="Fira Code" font-size="10" opacity="0">3 · service unavailable<animate attributeName="opacity" values="0;0;1;1" keyTimes="0.0000;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
-        <rect x="28" y="132" width="58" height="40" rx="6" fill="#0A0E14" stroke="#8B949E"/>
-        <text x="57" y="150" fill="#E6EDF3" font-family="Fira Code" font-size="11" text-anchor="middle">C2</text>
-        <text x="57" y="164" fill="#8B949E" font-family="Fira Code" font-size="8" text-anchor="middle">attacker</text>
-        <line x1="86" y1="152" x2="140" y2="111" stroke="#1F2A37" stroke-dasharray="3 3"/>
-        <line x1="206" y1="111" x2="290" y2="147" stroke="#1F2A37"/>
-        <line x1="86" y1="152" x2="140" y2="141" stroke="#1F2A37" stroke-dasharray="3 3"/>
-        <line x1="206" y1="141" x2="290" y2="147" stroke="#1F2A37"/>
-        <line x1="86" y1="152" x2="140" y2="171" stroke="#1F2A37" stroke-dasharray="3 3"/>
-        <line x1="206" y1="171" x2="290" y2="147" stroke="#1F2A37"/>
-        <line x1="86" y1="152" x2="140" y2="201" stroke="#1F2A37" stroke-dasharray="3 3"/>
-        <line x1="206" y1="201" x2="290" y2="147" stroke="#1F2A37"/>
-        <rect x="140" y="100" width="66" height="22" rx="5" fill="#0A0E14" stroke="#3EC6D6"/>
-        <text x="173" y="115" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">bot 1</text>
-        <rect x="140" y="130" width="66" height="22" rx="5" fill="#0A0E14" stroke="#3EC6D6"/>
-        <text x="173" y="145" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">bot 2</text>
-        <rect x="140" y="160" width="66" height="22" rx="5" fill="#0A0E14" stroke="#3EC6D6"/>
-        <text x="173" y="175" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">bot 3</text>
-        <rect x="140" y="190" width="66" height="22" rx="5" fill="#0A0E14" stroke="#3EC6D6"/>
-        <text x="173" y="205" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">bot 4</text>
-        <text x="173" y="94" fill="#8B949E" font-family="Fira Code" font-size="8" text-anchor="middle">botnet</text>
-        <circle r="3" fill="#8B949E" opacity="0"><animate attributeName="cx" values="86;86;140;140" keyTimes="0.0000;0.0375;0.1375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="152;152;111;111" keyTimes="0.0000;0.0375;0.1375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.0375;0.0387;0.1375;0.1388;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#8B949E" opacity="0"><animate attributeName="cx" values="86;86;140;140" keyTimes="0.0000;0.0562;0.1562;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="152;152;141;141" keyTimes="0.0000;0.0562;0.1562;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.0562;0.0575;0.1562;0.1575;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#8B949E" opacity="0"><animate attributeName="cx" values="86;86;140;140" keyTimes="0.0000;0.0750;0.1750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="152;152;171;171" keyTimes="0.0000;0.0750;0.1750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.0750;0.0762;0.1750;0.1762;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#8B949E" opacity="0"><animate attributeName="cx" values="86;86;140;140" keyTimes="0.0000;0.0938;0.1938;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="152;152;201;201" keyTimes="0.0000;0.0938;0.1938;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.0938;0.0950;0.1938;0.1950;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.1875;0.2625;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.1875;0.2625;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.1875;0.1888;0.2625;0.2637;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2250;0.3000;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.2250;0.3000;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2250;0.2263;0.3000;0.3012;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2625;0.3375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.2625;0.3375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2625;0.2637;0.3375;0.3387;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3000;0.3750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.3000;0.3750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3000;0.3012;0.3750;0.3762;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3375;0.4125;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.3375;0.4125;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3375;0.3387;0.4125;0.4138;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3750;0.4500;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.3750;0.4500;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3750;0.3762;0.4500;0.4512;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4125;0.4875;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.4125;0.4875;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4125;0.4137;0.4875;0.4887;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4500;0.5250;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.4500;0.5250;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4500;0.4512;0.5250;0.5262;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4875;0.5625;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.4875;0.5625;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4875;0.4887;0.5625;0.5637;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5250;0.6000;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.5250;0.6000;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5250;0.5262;0.6000;0.6012;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5625;0.6375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.5625;0.6375;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5625;0.5637;0.6375;0.6387;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.6000;0.6750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="111;111;147;147" keyTimes="0.0000;0.6000;0.6750;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.6000;0.6012;0.6750;0.6762;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.1975;0.2725;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.1975;0.2725;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.1975;0.1988;0.2725;0.2737;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2350;0.3100;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.2350;0.3100;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2350;0.2363;0.3100;0.3112;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2725;0.3475;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.2725;0.3475;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2725;0.2737;0.3475;0.3488;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3100;0.3850;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.3100;0.3850;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3100;0.3112;0.3850;0.3862;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3475;0.4225;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.3475;0.4225;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3475;0.3488;0.4225;0.4238;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3850;0.4600;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.3850;0.4600;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3850;0.3862;0.4600;0.4612;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4225;0.4975;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.4225;0.4975;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4225;0.4237;0.4975;0.4987;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4600;0.5350;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.4600;0.5350;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4600;0.4612;0.5350;0.5363;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4975;0.5725;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.4975;0.5725;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4975;0.4987;0.5725;0.5737;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5350;0.6100;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.5350;0.6100;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5350;0.5362;0.6100;0.6112;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5725;0.6475;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.5725;0.6475;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5725;0.5737;0.6475;0.6487;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.6100;0.6850;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="141;141;147;147" keyTimes="0.0000;0.6100;0.6850;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.6100;0.6112;0.6850;0.6862;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2075;0.2825;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.2075;0.2825;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2075;0.2087;0.2825;0.2837;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2450;0.3200;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.2450;0.3200;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2450;0.2462;0.3200;0.3212;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2825;0.3575;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.2825;0.3575;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2825;0.2838;0.3575;0.3588;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3200;0.3950;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.3200;0.3950;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3200;0.3212;0.3950;0.3962;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3575;0.4325;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.3575;0.4325;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3575;0.3588;0.4325;0.4338;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3950;0.4700;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.3950;0.4700;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3950;0.3962;0.4700;0.4713;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4325;0.5075;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.4325;0.5075;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4325;0.4337;0.5075;0.5087;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4700;0.5450;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.4700;0.5450;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4700;0.4713;0.5450;0.5463;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5075;0.5825;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.5075;0.5825;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5075;0.5087;0.5825;0.5837;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5450;0.6200;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.5450;0.6200;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5450;0.5462;0.6200;0.6212;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5825;0.6575;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.5825;0.6575;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5825;0.5837;0.6575;0.6587;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.6200;0.6950;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="171;171;147;147" keyTimes="0.0000;0.6200;0.6950;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.6200;0.6212;0.6950;0.6962;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2175;0.2925;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.2175;0.2925;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2175;0.2188;0.2925;0.2937;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2550;0.3300;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.2550;0.3300;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2550;0.2562;0.3300;0.3312;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.2925;0.3675;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.2925;0.3675;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.2925;0.2937;0.3675;0.3687;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3300;0.4050;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.3300;0.4050;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3300;0.3312;0.4050;0.4062;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.3675;0.4425;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.3675;0.4425;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.3675;0.3688;0.4425;0.4438;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4050;0.4800;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.4050;0.4800;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4050;0.4062;0.4800;0.4813;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4425;0.5175;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.4425;0.5175;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4425;0.4437;0.5175;0.5187;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.4800;0.5550;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.4800;0.5550;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.4800;0.4812;0.5550;0.5562;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5175;0.5925;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.5175;0.5925;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5175;0.5187;0.5925;0.5937;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5550;0.6300;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.5550;0.6300;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5550;0.5562;0.6300;0.6312;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <circle r="2.6" fill="#3EC6D6" opacity="0"><animate attributeName="cx" values="206;206;290;290" keyTimes="0.0000;0.5925;0.6675;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="cy" values="201;201;147;147" keyTimes="0.0000;0.5925;0.6675;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5925;0.5938;0.6675;0.6687;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <rect x="290" y="110" width="82" height="74" rx="6" fill="#0A0E14" stroke="#3EC6D6" stroke-width="1.5"><animate attributeName="stroke" values="#3EC6D6;#3EC6D6;#F85149;#F85149" keyTimes="0.0000;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></rect>
-        <text x="331" y="127" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">web server</text>
-        <text x="300" y="143" fill="#8B949E" font-family="Fira Code" font-size="8">load</text>
-        <rect x="300" y="148" width="62" height="7" rx="3" fill="#1F2A37"/>
-        <rect x="300" y="148" width="6" height="7" rx="3" fill="#3EC6D6"><animate attributeName="width" values="6;6;62;62;6" keyTimes="0.0000;0.2000;0.6750;0.9875;1.0000" dur="8.0s" repeatCount="indefinite"/><animate attributeName="fill" values="#3EC6D6;#3EC6D6;#F85149;#F85149;#3EC6D6" keyTimes="0.0000;0.3750;0.6250;0.9875;1.0000" dur="8.0s" repeatCount="indefinite"/></rect>
-        <text x="331" y="174" fill="#3EC6D6" font-family="Fira Code" font-size="10" text-anchor="middle">HTTP 200<animate attributeName="opacity" values="1;1;0;0" keyTimes="0.0000;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
-        <text x="331" y="174" fill="#F85149" font-family="Fira Code" font-size="10" text-anchor="middle" opacity="0">HTTP 503<animate attributeName="opacity" values="0;0;1;1" keyTimes="0.0000;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
-        <rect x="28" y="216" width="58" height="24" rx="5" fill="#0A0E14" stroke="#8B949E"/>
-        <text x="57" y="231" fill="#E6EDF3" font-family="Fira Code" font-size="9" text-anchor="middle">user</text>
-        <path d="M86,228 H331 V184" fill="none" stroke="#1F2A37" stroke-dasharray="3 3"/>
-        <circle r="3" fill="#E6EDF3" opacity="0"><animateMotion path="M86,228 H331 V184" keyPoints="0;0;1;1" keyTimes="0.0000;0.5375;0.6875;1.0000" calcMode="linear" dur="8.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0.0000;0.5375;0.5387;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></circle>
-        <text x="322" y="222" text-anchor="end" fill="#F85149" font-family="Fira Code" font-size="9" opacity="0">✕ request timed out<animate attributeName="opacity" values="0;0;1;1" keyTimes="0.0000;0.6875;0.6887;1.0000" dur="8.0s" repeatCount="indefinite"/></text>
+  <div class="doors">
+    <a class="tile door reveal" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/projects" target="_blank" rel="noopener noreferrer">
+      <div class="art"><svg viewBox="0 0 300 160" aria-hidden="true">
+          <g fill="none" stroke="#3EC6D6">
+            <rect x="60" y="30" width="180" height="104" rx="10" stroke-opacity=".35"/>
+            <rect x="44" y="22" width="180" height="104" rx="10" fill="#0A0D13" stroke-opacity=".9"/>
+            <line x1="44" y1="44" x2="224" y2="44" stroke-opacity=".35"/>
+          </g>
+          <g fill="#3EC6D6"><circle cx="58" cy="33" r="3"/><circle cx="69" cy="33" r="3" fill-opacity=".5"/><circle cx="80" cy="33" r="3" fill-opacity=".3"/></g>
+          <g fill="#3EC6D6">
+            <rect x="60" y="58" height="8" rx="4" width="20"><animate attributeName="width" values="20;120;120;20" keyTimes="0;.4;.85;1" dur="5s" repeatCount="indefinite"/></rect>
+            <rect x="60" y="76" height="8" rx="4" width="20" fill-opacity=".6"><animate attributeName="width" values="20;20;90;90;20" keyTimes="0;.2;.6;.85;1" dur="5s" repeatCount="indefinite"/></rect>
+            <rect x="60" y="94" height="8" rx="4" width="20" fill-opacity=".35"><animate attributeName="width" values="20;20;140;140;20" keyTimes="0;.4;.8;.9;1" dur="5s" repeatCount="indefinite"/></rect>
+          </g>
+          <rect x="196" y="104" width="8" height="14" fill="#C4B5FD"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>
         </svg></div>
-      <div class="body">
-        <div class="meta mono"><span>project</span><span class="wip">● work in progress</span></div>
-        <h3>vulneria.</h3>
-        <p>An interactive visual dictionary of cybersecurity threats. Don't memorize it. Understand it.</p>
-        <ul>
-          <li>Step-by-step interactive simulations of how threats work</li>
-          <li>Five categories: attacks, incidents, malware, vectors and vulnerabilities</li>
-          <li>Search, alphabetical navigation and category filters</li>
-          <li>My part: concept, visual design, content, research and technical review (AI-assisted development)</li>
-        </ul>
-        <div class="chips"><span>Interactive learning</span><span>Threat analysis</span><span>AI-assisted</span></div>
-        <a class="more" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/projects/vulneria" target="_blank" rel="noopener noreferrer">Read the project <span aria-hidden="true">→</span></a>
+      <div class="dbody">
+        <span class="mono"><b>$</b> cd ./projects</span>
+        <h3>Projects</h3>
+        <p>Tools and learning resources I design and build.</p>
+        <span class="open">Open folder <span aria-hidden="true">↗</span></span>
       </div>
-    </article>
-
-  </div>
-</div></section>
-
-<section class="section" id="labs"><div class="wrap">
-  <div class="shead">
-    <div><span class="mono"><b>$</b> ls ./hands-on-labs</span><h2>Home <span class="surname">labs</span></h2></div>
-    <p>Built and documented by me, in my own isolated environments. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/hands-on-labs" target="_blank" rel="noopener noreferrer">Open folder <span aria-hidden="true">↗</span></a></p>
-  </div>
-  <div class="projects">
-
-    <article class="tile proj reveal">
-      <div class="fig"><svg viewBox="0 0 400 150" role="img" aria-label="Kali LAB connected to Metasploitable2 on an isolated host-only network">
-        <rect x="14" y="14" width="372" height="122" rx="10" fill="none" stroke="#3EC6D6" stroke-dasharray="5 5" opacity=".6"/>
-        <text x="28" y="36" fill="#3EC6D6" font-family="Fira Code" font-size="11">host-only · isolated</text>
-        <rect x="40" y="58" width="120" height="54" rx="8" fill="#111823" stroke="#3EC6D6"/>
-        <text x="100" y="90" fill="#E6EDF3" font-family="Sora" font-size="14" text-anchor="middle">Kali LAB</text>
-        <rect x="240" y="58" width="130" height="54" rx="8" fill="#111823" stroke="#3EC6D6"/>
-        <text x="305" y="82" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Metasploitable2</text>
-        <text x="305" y="100" fill="#8B949E" font-family="Fira Code" font-size="11" text-anchor="middle">192.168.128.3</text>
-        <line x1="160" y1="85" x2="240" y2="85" stroke="#3EC6D6" stroke-width="2"/>
-        <circle r="4" fill="#3EC6D6"><animate attributeName="cx" values="164;236;164" dur="3s" repeatCount="indefinite"/><animate attributeName="cy" values="85;85;85" dur="3s" repeatCount="indefinite"/></circle>
-      </svg></div>
-      <div class="body">
-        <div class="meta mono"><span>lab <b>01</b></span></div>
-        <h3>Metasploitable2 Lab</h3>
-        <p>An isolated network on my Mac, to practise reconnaissance against an intentionally vulnerable machine.</p>
-        <ul>
-          <li>Emulated x86_64 VM in UTM, on a host-only network</li>
-          <li>Nmap scan with <code>-sV -Pn -n -T4</code>: finished in 52.70 s</li>
-          <li>Unauthenticated bindshell on port 1524: root access with no password</li>
-        </ul>
-        <div class="chips"><span>UTM</span><span>QEMU</span><span>Kali Linux</span><span>Nmap</span><span>Netcat</span></div>
-        <a class="more" href="https://github.com/elena-lucero/cybersecurity-portfolio/blob/main/hands-on-labs/home-lab-metasploitable2.md" target="_blank" rel="noopener noreferrer">Read the lab <span aria-hidden="true">→</span></a>
+    </a>
+    <a class="tile door reveal" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/hands-on-labs" target="_blank" rel="noopener noreferrer">
+      <div class="art"><svg viewBox="0 0 300 160" aria-hidden="true">
+          <g fill="none" stroke="#3EC6D6" stroke-dasharray="4 4" stroke-opacity=".5"><rect x="18" y="18" width="264" height="124" rx="12"/></g>
+          <g fill="#0A0D13" stroke="#3EC6D6">
+            <rect x="34" y="62" width="62" height="40" rx="7"/><rect x="122" y="62" width="56" height="40" rx="7" stroke-opacity=".6"/><rect x="204" y="54" width="62" height="56" rx="7"/>
+          </g>
+          <g stroke="#3EC6D6" stroke-width="1.5"><line x1="96" y1="82" x2="122" y2="82"/><line x1="178" y1="82" x2="204" y2="82"/></g>
+          <g fill="#3EC6D6" fill-opacity=".8"><rect x="44" y="74" width="42" height="4" rx="2"/><rect x="44" y="84" width="28" height="4" rx="2" fill-opacity=".5"/>
+            <circle cx="140" cy="82" r="3"/><circle cx="150" cy="82" r="3" fill-opacity=".5"/><circle cx="160" cy="82" r="3" fill-opacity=".3"/>
+            <rect x="214" y="66" width="42" height="6" rx="2"/><rect x="214" y="78" width="42" height="6" rx="2" fill-opacity=".5"/><rect x="214" y="90" width="42" height="6" rx="2" fill-opacity=".3"/></g>
+          <circle r="4" fill="#C4B5FD" cy="82"><animate attributeName="cx" values="96;204;96" dur="3.2s" repeatCount="indefinite"/></circle>
+          <circle cx="258" cy="62" r="3" fill="#3EC6D6"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
+        </svg></div>
+      <div class="dbody">
+        <span class="mono"><b>$</b> cd ./hands-on-labs</span>
+        <h3>Home labs</h3>
+        <p>Hands-on labs in my own isolated environments, documented step by step.</p>
+        <span class="open">Open folder <span aria-hidden="true">↗</span></span>
       </div>
-    </article>
-
-    <article class="tile proj reveal">
-      <div class="fig"><svg viewBox="0 0 400 150" role="img" aria-label="iPhone connects through the router to the Raspberry Pi running Pi-hole, WireGuard and UFW">
-        <rect x="14" y="14" width="372" height="122" rx="10" fill="none" stroke="#3EC6D6" stroke-dasharray="5 5" opacity=".6"/>
-        <text x="28" y="36" fill="#3EC6D6" font-family="Fira Code" font-size="11">home network</text>
-        <rect x="28" y="62" width="74" height="46" rx="8" fill="#111823" stroke="#8B949E"/>
-        <text x="65" y="90" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">iPhone</text>
-        <rect x="140" y="62" width="84" height="46" rx="8" fill="#111823" stroke="#8B949E"/>
-        <text x="182" y="90" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Router</text>
-        <rect x="262" y="52" width="112" height="66" rx="8" fill="#111823" stroke="#3EC6D6"/>
-        <text x="318" y="78" fill="#E6EDF3" font-family="Sora" font-size="13" text-anchor="middle">Raspberry Pi 5</text>
-        <text x="318" y="98" fill="#8B949E" font-family="Fira Code" font-size="10" text-anchor="middle">Pi-hole · WireGuard</text>
-        <line x1="102" y1="85" x2="140" y2="85" stroke="#3EC6D6" stroke-width="2" stroke-dasharray="4 3"/>
-        <line x1="224" y1="85" x2="262" y2="85" stroke="#3EC6D6" stroke-width="2"/>
-        <circle r="4" fill="#3EC6D6" cy="85"><animate attributeName="cx" values="106;258" dur="2.6s" repeatCount="indefinite"/></circle>
-      </svg></div>
-      <div class="body">
-        <div class="meta mono"><span>lab <b>02</b></span></div>
-        <h3>Raspberry Pi Home Security Server</h3>
-        <p>My own home server: ad blocking, a personal VPN, a firewall and alerts for unknown devices.</p>
-        <ul>
-          <li>Pi-hole blocked 38 of 250 requests (15%) on a news website test</li>
-          <li>WireGuard VPN: Pi-hole keeps blocking trackers outside my home</li>
-          <li>UFW firewall, SSH keys, automatic updates and backups</li>
-          <li>arp-scan + Cron + ntfy alerts for new devices</li>
-        </ul>
-        <div class="chips"><span>Raspberry Pi</span><span>Pi-hole</span><span>WireGuard</span><span>UFW</span><span>arp-scan</span><span>ntfy</span></div>
-        <a class="more" href="https://github.com/elena-lucero/cybersecurity-portfolio/blob/main/hands-on-labs/raspberry-pi-pihole-vpn.md" target="_blank" rel="noopener noreferrer">Read the lab <span aria-hidden="true">→</span></a>
+    </a>
+    <a class="tile door reveal" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/articles" target="_blank" rel="noopener noreferrer">
+      <div class="art"><svg viewBox="0 0 300 160" aria-hidden="true">
+          <g fill="none" stroke="#3EC6D6"><rect x="96" y="16" width="108" height="128" rx="8" stroke-opacity=".35" transform="rotate(-6 150 80)"/>
+            <rect x="96" y="16" width="108" height="128" rx="8" fill="#0A0D13"/></g>
+          <g fill="#3EC6D6">
+            <rect x="112" y="34" height="6" rx="3" width="56"/>
+            <rect x="112" y="52" height="4" rx="2" width="10" fill-opacity=".5"><animate attributeName="width" values="10;76;76;10" keyTimes="0;.3;.9;1" dur="6s" repeatCount="indefinite"/></rect>
+            <rect x="112" y="64" height="4" rx="2" width="10" fill-opacity=".5"><animate attributeName="width" values="10;10;70;70;10" keyTimes="0;.3;.5;.9;1" dur="6s" repeatCount="indefinite"/></rect>
+            <rect x="112" y="76" height="4" rx="2" width="10" fill-opacity=".5"><animate attributeName="width" values="10;10;76;76;10" keyTimes="0;.5;.7;.9;1" dur="6s" repeatCount="indefinite"/></rect>
+            <rect x="112" y="88" height="4" rx="2" width="10" fill-opacity=".5"><animate attributeName="width" values="10;10;48;48;10" keyTimes="0;.7;.85;.9;1" dur="6s" repeatCount="indefinite"/></rect>
+          </g>
+          <path d="M116 120 C126 108,136 132,146 120 S166 108,176 120 S186 132,186 120" fill="none" stroke="#C4B5FD" stroke-width="1.6"/>
+        </svg></div>
+      <div class="dbody">
+        <span class="mono"><b>$</b> cd ./articles</span>
+        <h3>Articles</h3>
+        <p>Writing about how digital threats work, explained clearly.</p>
+        <span class="open">Open folder <span aria-hidden="true">↗</span></span>
       </div>
-    </article>
-
-  </div>
-</div></section>
-
-<section class="section" id="articles"><div class="wrap">
-  <div class="shead">
-    <div><span class="mono"><b>$</b> ls ./articles</span><h2>Articles &amp; <span class="surname">creative work</span></h2></div>
-    <p>Writing and visual explanations about how threats work. <a class="folder" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/articles" target="_blank" rel="noopener noreferrer">Open folder <span aria-hidden="true">↗</span></a></p>
-  </div>
-  <div class="projects">
-    <article class="tile proj reveal">
-      <div class="fig"><svg viewBox="0 0 400 150" role="img" aria-label="Malware Ecology: symbolic digital DNA" xmlns="http://www.w3.org/2000/svg">
-<rect width="400" height="150" fill="#080A0F"/>
-<path d="M40 75.00 V75.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M50 86.48 V63.52" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M60 96.21 V53.79" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M70 102.72 V47.28" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M80 105.00 V45.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M90 102.72 V47.28" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M100 96.21 V53.79" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M110 86.48 V63.52" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M120 75.00 V75.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M130 63.52 V86.48" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M140 53.79 V96.21" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M150 47.28 V102.72" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M160 45.00 V105.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M170 47.28 V102.72" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M180 53.79 V96.21" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M190 63.52 V86.48" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M200 75.00 V75.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M210 86.48 V63.52" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M220 96.21 V53.79" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M230 102.72 V47.28" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M240 105.00 V45.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M250 102.72 V47.28" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M260 96.21 V53.79" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M270 86.48 V63.52" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M280 75.00 V75.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M290 63.52 V86.48" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M300 53.79 V96.21" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M310 47.28 V102.72" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M320 45.00 V105.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M330 47.28 V102.72" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M340 53.79 V96.21" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M350 63.52 V86.48" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M360 75.00 V75.00" stroke="#8294AC" stroke-opacity=".45" stroke-width="1"/>
-<path d="M40 75.00 L42 77.35 L44 79.69 L46 82.00 L48 84.27 L50 86.48 L52 88.62 L54 90.67 L56 92.63 L58 94.48 L60 96.21 L62 97.81 L64 99.27 L66 100.58 L68 101.73 L70 102.72 L72 103.53 L74 104.17 L76 104.63 L78 104.91 L80 105.00 L82 104.91 L84 104.63 L86 104.17 L88 103.53 L90 102.72 L92 101.73 L94 100.58 L96 99.27 L98 97.81 L100 96.21 L102 94.48 L104 92.63 L106 90.67 L108 88.62 L110 86.48 L112 84.27 L114 82.00 L116 79.69 L118 77.35 L120 75.00 L122 72.65 L124 70.31 L126 68.00 L128 65.73 L130 63.52 L132 61.38 L134 59.33 L136 57.37 L138 55.52 L140 53.79 L142 52.19 L144 50.73 L146 49.42 L148 48.27 L150 47.28 L152 46.47 L154 45.83 L156 45.37 L158 45.09 L160 45.00 L162 45.09 L164 45.37 L166 45.83 L168 46.47 L170 47.28 L172 48.27 L174 49.42 L176 50.73 L178 52.19 L180 53.79 L182 55.52 L184 57.37 L186 59.33 L188 61.38 L190 63.52 L192 65.73 L194 68.00 L196 70.31 L198 72.65 L200 75.00 L202 77.35 L204 79.69 L206 82.00 L208 84.27 L210 86.48 L212 88.62 L214 90.67 L216 92.63 L218 94.48 L220 96.21 L222 97.81 L224 99.27 L226 100.58 L228 101.73 L230 102.72 L232 103.53 L234 104.17 L236 104.63 L238 104.91 L240 105.00 L242 104.91 L244 104.63 L246 104.17 L248 103.53 L250 102.72 L252 101.73 L254 100.58 L256 99.27 L258 97.81 L260 96.21 L262 94.48 L264 92.63 L266 90.67 L268 88.62 L270 86.48 L272 84.27 L274 82.00 L276 79.69 L278 77.35 L280 75.00 L282 72.65 L284 70.31 L286 68.00 L288 65.73 L290 63.52 L292 61.38 L294 59.33 L296 57.37 L298 55.52 L300 53.79 L302 52.19 L304 50.73 L306 49.42 L308 48.27 L310 47.28 L312 46.47 L314 45.83 L316 45.37 L318 45.09 L320 45.00 L322 45.09 L324 45.37 L326 45.83 L328 46.47 L330 47.28 L332 48.27 L334 49.42 L336 50.73 L338 52.19 L340 53.79 L342 55.52 L344 57.37 L346 59.33 L348 61.38 L350 63.52 L352 65.73 L354 68.00 L356 70.31 L358 72.65 L360 75.00" fill="none" stroke="#3EC6D6" stroke-width="2" stroke-linecap="round"/><circle r="3" fill="#3EC6D6"><animateMotion path="M40 75.00 L42 77.35 L44 79.69 L46 82.00 L48 84.27 L50 86.48 L52 88.62 L54 90.67 L56 92.63 L58 94.48 L60 96.21 L62 97.81 L64 99.27 L66 100.58 L68 101.73 L70 102.72 L72 103.53 L74 104.17 L76 104.63 L78 104.91 L80 105.00 L82 104.91 L84 104.63 L86 104.17 L88 103.53 L90 102.72 L92 101.73 L94 100.58 L96 99.27 L98 97.81 L100 96.21 L102 94.48 L104 92.63 L106 90.67 L108 88.62 L110 86.48 L112 84.27 L114 82.00 L116 79.69 L118 77.35 L120 75.00 L122 72.65 L124 70.31 L126 68.00 L128 65.73 L130 63.52 L132 61.38 L134 59.33 L136 57.37 L138 55.52 L140 53.79 L142 52.19 L144 50.73 L146 49.42 L148 48.27 L150 47.28 L152 46.47 L154 45.83 L156 45.37 L158 45.09 L160 45.00 L162 45.09 L164 45.37 L166 45.83 L168 46.47 L170 47.28 L172 48.27 L174 49.42 L176 50.73 L178 52.19 L180 53.79 L182 55.52 L184 57.37 L186 59.33 L188 61.38 L190 63.52 L192 65.73 L194 68.00 L196 70.31 L198 72.65 L200 75.00 L202 77.35 L204 79.69 L206 82.00 L208 84.27 L210 86.48 L212 88.62 L214 90.67 L216 92.63 L218 94.48 L220 96.21 L222 97.81 L224 99.27 L226 100.58 L228 101.73 L230 102.72 L232 103.53 L234 104.17 L236 104.63 L238 104.91 L240 105.00 L242 104.91 L244 104.63 L246 104.17 L248 103.53 L250 102.72 L252 101.73 L254 100.58 L256 99.27 L258 97.81 L260 96.21 L262 94.48 L264 92.63 L266 90.67 L268 88.62 L270 86.48 L272 84.27 L274 82.00 L276 79.69 L278 77.35 L280 75.00 L282 72.65 L284 70.31 L286 68.00 L288 65.73 L290 63.52 L292 61.38 L294 59.33 L296 57.37 L298 55.52 L300 53.79 L302 52.19 L304 50.73 L306 49.42 L308 48.27 L310 47.28 L312 46.47 L314 45.83 L316 45.37 L318 45.09 L320 45.00 L322 45.09 L324 45.37 L326 45.83 L328 46.47 L330 47.28 L332 48.27 L334 49.42 L336 50.73 L338 52.19 L340 53.79 L342 55.52 L344 57.37 L346 59.33 L348 61.38 L350 63.52 L352 65.73 L354 68.00 L356 70.31 L358 72.65 L360 75.00" dur="6s" repeatCount="indefinite"/></circle>
-<path d="M40 75.00 L42 72.65 L44 70.31 L46 68.00 L48 65.73 L50 63.52 L52 61.38 L54 59.33 L56 57.37 L58 55.52 L60 53.79 L62 52.19 L64 50.73 L66 49.42 L68 48.27 L70 47.28 L72 46.47 L74 45.83 L76 45.37 L78 45.09 L80 45.00 L82 45.09 L84 45.37 L86 45.83 L88 46.47 L90 47.28 L92 48.27 L94 49.42 L96 50.73 L98 52.19 L100 53.79 L102 55.52 L104 57.37 L106 59.33 L108 61.38 L110 63.52 L112 65.73 L114 68.00 L116 70.31 L118 72.65 L120 75.00 L122 77.35 L124 79.69 L126 82.00 L128 84.27 L130 86.48 L132 88.62 L134 90.67 L136 92.63 L138 94.48 L140 96.21 L142 97.81 L144 99.27 L146 100.58 L148 101.73 L150 102.72 L152 103.53 L154 104.17 L156 104.63 L158 104.91 L160 105.00 L162 104.91 L164 104.63 L166 104.17 L168 103.53 L170 102.72 L172 101.73 L174 100.58 L176 99.27 L178 97.81 L180 96.21 L182 94.48 L184 92.63 L186 90.67 L188 88.62 L190 86.48 L192 84.27 L194 82.00 L196 79.69 L198 77.35 L200 75.00 L202 72.65 L204 70.31 L206 68.00 L208 65.73 L210 63.52 L212 61.38 L214 59.33 L216 57.37 L218 55.52 L220 53.79 L222 52.19 L224 50.73 L226 49.42 L228 48.27 L230 47.28 L232 46.47 L234 45.83 L236 45.37 L238 45.09 L240 45.00 L242 45.09 L244 45.37 L246 45.83 L248 46.47 L250 47.28 L252 48.27 L254 49.42 L256 50.73 L258 52.19 L260 53.79 L262 55.52 L264 57.37 L266 59.33 L268 61.38 L270 63.52 L272 65.73 L274 68.00 L276 70.31 L278 72.65 L280 75.00 L282 77.35 L284 79.69 L286 82.00 L288 84.27 L290 86.48 L292 88.62 L294 90.67 L296 92.63 L298 94.48 L300 96.21 L302 97.81 L304 99.27 L306 100.58 L308 101.73 L310 102.72 L312 103.53 L314 104.17 L316 104.63 L318 104.91 L320 105.00 L322 104.91 L324 104.63 L326 104.17 L328 103.53 L330 102.72 L332 101.73 L334 100.58 L336 99.27 L338 97.81 L340 96.21 L342 94.48 L344 92.63 L346 90.67 L348 88.62 L350 86.48 L352 84.27 L354 82.00 L356 79.69 L358 77.35 L360 75.00" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round"/><circle r="3" fill="#C4B5FD"><animateMotion path="M40 75.00 L42 72.65 L44 70.31 L46 68.00 L48 65.73 L50 63.52 L52 61.38 L54 59.33 L56 57.37 L58 55.52 L60 53.79 L62 52.19 L64 50.73 L66 49.42 L68 48.27 L70 47.28 L72 46.47 L74 45.83 L76 45.37 L78 45.09 L80 45.00 L82 45.09 L84 45.37 L86 45.83 L88 46.47 L90 47.28 L92 48.27 L94 49.42 L96 50.73 L98 52.19 L100 53.79 L102 55.52 L104 57.37 L106 59.33 L108 61.38 L110 63.52 L112 65.73 L114 68.00 L116 70.31 L118 72.65 L120 75.00 L122 77.35 L124 79.69 L126 82.00 L128 84.27 L130 86.48 L132 88.62 L134 90.67 L136 92.63 L138 94.48 L140 96.21 L142 97.81 L144 99.27 L146 100.58 L148 101.73 L150 102.72 L152 103.53 L154 104.17 L156 104.63 L158 104.91 L160 105.00 L162 104.91 L164 104.63 L166 104.17 L168 103.53 L170 102.72 L172 101.73 L174 100.58 L176 99.27 L178 97.81 L180 96.21 L182 94.48 L184 92.63 L186 90.67 L188 88.62 L190 86.48 L192 84.27 L194 82.00 L196 79.69 L198 77.35 L200 75.00 L202 72.65 L204 70.31 L206 68.00 L208 65.73 L210 63.52 L212 61.38 L214 59.33 L216 57.37 L218 55.52 L220 53.79 L222 52.19 L224 50.73 L226 49.42 L228 48.27 L230 47.28 L232 46.47 L234 45.83 L236 45.37 L238 45.09 L240 45.00 L242 45.09 L244 45.37 L246 45.83 L248 46.47 L250 47.28 L252 48.27 L254 49.42 L256 50.73 L258 52.19 L260 53.79 L262 55.52 L264 57.37 L266 59.33 L268 61.38 L270 63.52 L272 65.73 L274 68.00 L276 70.31 L278 72.65 L280 75.00 L282 77.35 L284 79.69 L286 82.00 L288 84.27 L290 86.48 L292 88.62 L294 90.67 L296 92.63 L298 94.48 L300 96.21 L302 97.81 L304 99.27 L306 100.58 L308 101.73 L310 102.72 L312 103.53 L314 104.17 L316 104.63 L318 104.91 L320 105.00 L322 104.91 L324 104.63 L326 104.17 L328 103.53 L330 102.72 L332 101.73 L334 100.58 L336 99.27 L338 97.81 L340 96.21 L342 94.48 L344 92.63 L346 90.67 L348 88.62 L350 86.48 L352 84.27 L354 82.00 L356 79.69 L358 77.35 L360 75.00" dur="6s" repeatCount="indefinite"/></circle>
-</svg></div>
-      <div class="body">
-        <div class="meta mono"><span>article series</span></div>
-        <h3>Malware Ecology</h3>
-        <p>An educational article series exploring the nature, behaviour, evolution and propagation of malware.</p>
-        <div class="chips"><span>Malware</span><span>Behaviour</span><span>Propagation</span></div>
-        <a class="more" href="https://github.com/elena-lucero/cybersecurity-portfolio/tree/main/articles/malware-ecology" target="_blank" rel="noopener noreferrer">Explore the series <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
+    </a>
   </div>
 </div></section>
 </main>
